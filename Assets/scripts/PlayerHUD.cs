@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private Player playerData;
     [SerializeField] private Image healthBarFill;
     [SerializeField] private Image DashBarFill;
+    [SerializeField] private TextMeshProUGUI weaponNameText;
 
     private void OnEnable()
     {
@@ -14,6 +16,7 @@ public class PlayerHUD : MonoBehaviour
         {
             playerData.OnHealthChanged += RefreshUi;
         }
+        WeaponChoosement.OnWeaponChanged += RefreshWeaponUi;
     }
 
     private void OnDisable()
@@ -22,6 +25,7 @@ public class PlayerHUD : MonoBehaviour
         {
             playerData.OnHealthChanged -= RefreshUi;
         }
+        WeaponChoosement.OnWeaponChanged -= RefreshWeaponUi;
     }
 
     private void RefreshUi(float currentHP, float maxHP)
@@ -37,7 +41,11 @@ public class PlayerHUD : MonoBehaviour
         if (DashBarFill != null)
         {
             DashBarFill.fillAmount = (float)DashAmount / 3f; // Assuming max dash amount is 3
-            Console.WriteLine($"Dash Amount: {DashAmount}"); // Debug log to check the value of DashAmount
         }
+    }
+    private void RefreshWeaponUi(WeaponChoosement.WeaponType weaponType)
+    {
+        if (weaponNameText != null)
+            weaponNameText.text = weaponType.ToString();
     }
 }

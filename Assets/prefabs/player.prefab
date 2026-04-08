@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 6766695280540380934}
   - component: {fileID: 5835748136973248535}
   - component: {fileID: 8217090616678918905}
+  - component: {fileID: 6630176053049150359}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -387,6 +388,46 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 976b5a69-1985-47fe-aa70-23f6bd76f59a
     m_ActionName: 'Gameplay/Crouch[/Keyboard/ctrl]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: de09e156be31a62409c01b579e688361, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e49cd660-3239-4208-b68d-131e49ba0abe
+    m_ActionName: 'Gameplay/Dash[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a3ca24b1-c417-4052-bd49-e916a62060da
+    m_ActionName: 'Gameplay/WeaponChoose1[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 68c27b2e-0d3d-4d43-ba1f-7fd070995ecd
+    m_ActionName: 'Gameplay/WeaponChoose2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d7040ea2-5634-4dcd-8341-ff27d52eb415
+    m_ActionName: 'Gameplay/WeaponChoose3[/Keyboard/3]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2e0b29c2-0787-48f4-94b9-d2b04cb68180
+    m_ActionName: 'Gameplay/WeaponChoose4[/Keyboard/4]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a71300f8-9954-4dca-9200-f9ede8e0e68c
+    m_ActionName: 'Gameplay/WeaponChoose5[/Keyboard/5]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a699719f-ecb1-4def-98a3-e6da73c2ccb7
+    m_ActionName: 'Gameplay/WeaponChoose6[/Keyboard/6]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -410,6 +451,7 @@ MonoBehaviour:
   DashAmount: 3
   dashforce: 20
   dashDuration: 0.2
+  HUDManager: {fileID: 0}
 --- !u!114 &8217090616678918905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +464,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa82f17adc7ae743a94bc2dc0075140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &6630176053049150359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274387761423677414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697706afcc61e3b4ea9c4e1b0f36653e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponChoosement
+  playerData: {fileID: 11400000, guid: 2a12d6ce5ad8bca4ea06891240204655, type: 2}
+  currentWeapon: 0
 --- !u!1 &5894958416048972240
 GameObject:
   m_ObjectHideFlags: 0
