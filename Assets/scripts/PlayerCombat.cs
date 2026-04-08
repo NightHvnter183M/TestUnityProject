@@ -10,6 +10,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     public WeaponType currentWeapon;
     private float nextFireTime;
+    private bool _isFiring;
 
     private void OnEnable()
     {
@@ -23,10 +24,8 @@ public class PlayerCombat : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (context.performed &&  Time.time >= nextFireTime)
-        {
-            Shoot();
-        }
+        if (context.started) _isFiring = true;
+        if (context.canceled) _isFiring = false;
     }
 
     public void OnCast(InputAction.CallbackContext context)
@@ -36,6 +35,26 @@ public class PlayerCombat : MonoBehaviour
             Cast();
         }
     }
+
+    private void Update()
+    {
+        if (_isFiring && Time.time >= nextFireTime)
+        {
+            if(IsAutomatic(currentWeapon))
+            Shoot();
+            else Shoot();
+        }
+        else if (!IsAutomatic(currentWeapon))
+        {
+            _isFiring = false;
+        }
+    }
+
+    private bool IsAutomatic(WeaponType weapon)
+    {
+        return weapon == WeaponType.MachineGun || weapon == WeaponType.SMG;
+    }
+
     private void Shoot()
     {
         float damage;
