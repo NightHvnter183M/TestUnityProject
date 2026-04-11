@@ -1,16 +1,15 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 public class PlayerMovement : MonoBehaviour
-{   
+{
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float  jumpForce = 2f;
+    [SerializeField] private float jumpForce = 2f;
     [SerializeField] private float gravity = -9.81f;
-    public byte DashAmount = 3; 
-    [SerializeField] private float  dashforce = 20f;
+    [SerializeField] private float dashforce = 20f;
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private GameObject HUDManager;
+    public byte DashAmount = 3;
     private CharacterController controller;
     private Vector3 moveInput;
     private Vector3 velocity;
@@ -54,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         if (DashAmount > 0 && context.performed)
         {
             DashAmount--;
-            Vector3 dashDir = transform.forward; 
+            Vector3 dashDir = transform.forward;
             dashVelocity = dashDir * dashforce;
             dashTimer = dashDuration;
             Invoke(nameof(DashCounter), 2f);
@@ -66,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
-        Vector3 moveDirection = transform.TransformDirection(move); 
+        Vector3 moveDirection = transform.TransformDirection(move);
         controller.Move(moveDirection * speed * Time.deltaTime);
         Vector3 finalMove = moveDirection * speed * Time.deltaTime;
         if (dashTimer > 0)

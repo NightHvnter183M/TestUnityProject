@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum WeaponType {Revolver, Shotgun, MachineGun, GrenadeLaiuncher, RailGun, SMG};
+public enum WeaponType { Revolver, Shotgun, MachineGun, GrenadeLaiuncher, RailGun, SMG };
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -40,8 +40,8 @@ public class PlayerCombat : MonoBehaviour
     {
         if (_isFiring && Time.time >= nextFireTime)
         {
-            if(IsAutomatic(currentWeapon))
-            Shoot();
+            if (IsAutomatic(currentWeapon))
+                Shoot();
             else Shoot();
         }
         else if (!IsAutomatic(currentWeapon))
@@ -97,7 +97,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (hit.collider.CompareTag("Enemy"))
             {
-               Debug.Log($"Hit enemy for {damage} damage.");
+                hit.collider.GetComponent<EnemyHealth>().TakeDamage(damage);
             }
         }
     }
@@ -107,22 +107,22 @@ public class PlayerCombat : MonoBehaviour
         switch (currentWeapon)
         {
             case WeaponType.Revolver:
-            playerData.ConsumeHP(10f);
+                playerData.ConsumeHP(10f);
                 break;
             case WeaponType.Shotgun:
-            playerData.ConsumeHP(10f);
+                playerData.ConsumeHP(10f);
                 break;
             case WeaponType.MachineGun:
-            playerData.ConsumeHP(10f);
+                playerData.ConsumeHP(10f);
                 break;
             case WeaponType.GrenadeLaiuncher:
-            playerData.ConsumeHP(10f);
+                playerData.ConsumeHP(10f);
                 break;
             case WeaponType.RailGun:
-            playerData.ConsumeHP(30f);
+                playerData.ConsumeHP(30f);
                 break;
             case WeaponType.SMG:
-            playerData.ConsumeHP(30f);
+                playerData.ConsumeHP(30f);
                 break;
         }
     }
