@@ -9,41 +9,41 @@ public class HighRangeEnemyAttack1 : MonoBehaviour
     [SerializeField] private float fleeRange = 7f;
     [SerializeField] private float fireRate = 2f;
     [SerializeField] private float projectileSpeed = 20f;
-    private NavMeshAgent agent;
-    private Transform player;
-    private float nextFireTime;
+    private NavMeshAgent _agent;
+    private Transform _player;
+    private float _nextFireTime;
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        _agent = GetComponent<NavMeshAgent>();
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        if (player == null) return;
-        float distance = Vector3.Distance(transform.position, player.position);
+        if (_player == null) return;
+        float distance = Vector3.Distance(transform.position, _player.position);
         if (distance < fleeRange)
         {
-            Vector3 fleeDirection = (transform.position - player.position).normalized;
+            Vector3 fleeDirection = (transform.position - _player.position).normalized;
             Vector3 runTo = transform.position + fleeDirection * 5f;
-            agent.SetDestination(runTo);
+            _agent.SetDestination(runTo);
         }
         else if (distance <= attackRange)
         {
-            agent.ResetPath();
+            _agent.ResetPath();
             LookAtPlayer();
-            if (Time.time >= nextFireTime)
+            if (Time.time >= _nextFireTime)
             {
                 Shoot();
-                nextFireTime = Time.time + fireRate;
+                _nextFireTime = Time.time + fireRate;
             }
         }
-        else agent.SetDestination(player.position);
+        else _agent.SetDestination(_player.position);
     }
 
     private void LookAtPlayer()
     {
-        Vector3 direction = (player.position - transform.position).normalized;
+        Vector3 direction = (_player.position - transform.position).normalized;
         direction.y = 0;
         transform.rotation = Quaternion.LookRotation(direction);
     }

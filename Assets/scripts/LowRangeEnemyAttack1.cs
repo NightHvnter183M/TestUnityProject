@@ -8,33 +8,33 @@ public class LowRangeEnemyAttack1 : MonoBehaviour
     [SerializeField] private float attackRange = 3.5f;
     [SerializeField] private float attackCooldown = 1.5f;
     [SerializeField] private float damage = 10f;
-    private Transform playerTransform;
-    private NavMeshAgent agent;
-    private float nextAttackTime;
+    private Transform _playerTransform;
+    private NavMeshAgent _agent;
+    private float _nextAttackTime;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        _agent = GetComponent<NavMeshAgent>();
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null) playerTransform = playerObj.transform;
+        if (playerObj != null) _playerTransform = playerObj.transform;
     }
 
     void Update()
     {
-        if (playerTransform == null) return;
-        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        if (_playerTransform == null) return;
+        float distanceToPlayer = Vector3.Distance(transform.position, _playerTransform.position);
         if (distanceToPlayer <= detectionRange)
         {
-            agent.SetDestination(playerTransform.position);
+            _agent.SetDestination(_playerTransform.position);
             if (distanceToPlayer <= attackRange) TryAttack();
         }
     }
 
     private void TryAttack()
     {
-        if (Time.time >= nextAttackTime)
+        if (Time.time >= _nextAttackTime)
         {
-            nextAttackTime = Time.time + attackCooldown;
+            _nextAttackTime = Time.time + attackCooldown;
             playerData.ConsumeHP(damage);
         }
     }

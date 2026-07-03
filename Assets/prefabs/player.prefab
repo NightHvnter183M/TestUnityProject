@@ -187,6 +187,8 @@ GameObject:
   - component: {fileID: 5835748136973248535}
   - component: {fileID: 8217090616678918905}
   - component: {fileID: 6630176053049150359}
+  - component: {fileID: -5524621510616147413}
+  - component: {fileID: 5005191351781067810}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -390,13 +392,13 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Crouch[/Keyboard/ctrl]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: de09e156be31a62409c01b579e688361, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 5835748136973248535}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -405,29 +407,133 @@ MonoBehaviour:
     m_ActionId: e49cd660-3239-4208-b68d-131e49ba0abe
     m_ActionName: 'Gameplay/Dash[/Keyboard/shift]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6630176053049150359}
+        m_TargetAssemblyTypeName: WeaponChoosement, Assembly-CSharp
+        m_MethodName: OnSelectWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a3ca24b1-c417-4052-bd49-e916a62060da
     m_ActionName: 'Gameplay/WeaponChoose1[/Keyboard/1]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6630176053049150359}
+        m_TargetAssemblyTypeName: WeaponChoosement, Assembly-CSharp
+        m_MethodName: OnSelectWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 68c27b2e-0d3d-4d43-ba1f-7fd070995ecd
     m_ActionName: 'Gameplay/WeaponChoose2[/Keyboard/2]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6630176053049150359}
+        m_TargetAssemblyTypeName: WeaponChoosement, Assembly-CSharp
+        m_MethodName: OnSelectWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d7040ea2-5634-4dcd-8341-ff27d52eb415
     m_ActionName: 'Gameplay/WeaponChoose3[/Keyboard/3]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6630176053049150359}
+        m_TargetAssemblyTypeName: WeaponChoosement, Assembly-CSharp
+        m_MethodName: OnSelectWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2e0b29c2-0787-48f4-94b9-d2b04cb68180
     m_ActionName: 'Gameplay/WeaponChoose4[/Keyboard/4]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6630176053049150359}
+        m_TargetAssemblyTypeName: WeaponChoosement, Assembly-CSharp
+        m_MethodName: OnSelectWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a71300f8-9954-4dca-9200-f9ede8e0e68c
     m_ActionName: 'Gameplay/WeaponChoose5[/Keyboard/5]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6630176053049150359}
+        m_TargetAssemblyTypeName: WeaponChoosement, Assembly-CSharp
+        m_MethodName: OnSelectWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a699719f-ecb1-4def-98a3-e6da73c2ccb7
     m_ActionName: 'Gameplay/WeaponChoose6[/Keyboard/6]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -5524621510616147413}
+        m_TargetAssemblyTypeName: PlayerCombat, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 74c3a980-e47e-4d89-b048-02caf4bbcbb9
+    m_ActionName: 'Gameplay/Shooting[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -5524621510616147413}
+        m_TargetAssemblyTypeName: PlayerCombat, Assembly-CSharp
+        m_MethodName: OnCast
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 315fcb3e-da9a-4cd2-9f04-7ab33c5f824b
+    m_ActionName: 'Gameplay/Casting[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -448,10 +554,10 @@ MonoBehaviour:
   speed: 5
   jumpForce: 2
   gravity: -9.81
-  DashAmount: 3
   dashforce: 20
   dashDuration: 0.2
   HUDManager: {fileID: 0}
+  DashAmount: 3
 --- !u!114 &8217090616678918905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +584,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponChoosement
   playerData: {fileID: 11400000, guid: 2a12d6ce5ad8bca4ea06891240204655, type: 2}
   currentWeapon: 0
+--- !u!114 &-5524621510616147413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274387761423677414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42af71a028683fc47aaf5ee3065e294e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  currentWeapon: 0
+--- !u!114 &5005191351781067810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274387761423677414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3859ac9caf254a6f8d1897e18351cb4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.RevolverAttack
+  Damage: 35
+  Rate: 0.5
+  playerCamera: {fileID: 8090375191626737822}
 --- !u!1 &5894958416048972240
 GameObject:
   m_ObjectHideFlags: 0

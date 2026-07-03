@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "Player", menuName = "Scriptable Objects/Player")]
 public class Player : ScriptableObject
@@ -7,13 +8,13 @@ public class Player : ScriptableObject
     [SerializeField] public float MaxHP = 100f;
     [SerializeField] public float CurrentHP;
     [SerializeField] private float UsedHP;
-
     public event Action<float, float> OnHealthChanged;
 
     private void OnEnable()
     {
         CurrentHP = MaxHP;
         UsedHP = 0f;
+        ;
     }
 
     public void ConsumeHP(float amount)

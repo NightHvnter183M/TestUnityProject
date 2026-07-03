@@ -4,17 +4,17 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private Player playerData;
-    private float currentHealth;
+    private float _currentHealth;
 
     void Start()
     {
-        currentHealth = maxHealth;
+        _currentHealth = maxHealth;
     }
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0) Die();
+        _currentHealth -= damage;
+        if (_currentHealth <= 0) Die();
 
     }
 

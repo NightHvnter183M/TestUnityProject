@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class WeaponChoosement : MonoBehaviour
 {
-    public enum WeaponType {Revolver, Shotgun, MachineGun, GrenadeLaiuncher, RailGun, SMG};
+    public enum WeaponType {Revolver, Shotgun, MachineGun, GrenadeLauncher, RailGun, SMG};
     [SerializeField] private Player playerData;
     public WeaponType currentWeapon = WeaponType.Revolver;
     public static event Action<WeaponType> OnWeaponChanged;
@@ -20,7 +20,7 @@ public class WeaponChoosement : MonoBehaviour
 
     private void ChangeWeapon(byte index)
     {
-        if (index < 0 || index >= Enum.GetValues(typeof(WeaponType)).Length)
+        if (index >= Enum.GetValues(typeof(WeaponType)).Length)
             return;
         if (index == (byte)currentWeapon)
             return;

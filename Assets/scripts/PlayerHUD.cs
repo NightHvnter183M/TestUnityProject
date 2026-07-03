@@ -40,7 +40,7 @@ public class PlayerHUD : MonoBehaviour
     {
         if (DashBarFill != null)
         {
-            DashBarFill.fillAmount = (float)DashAmount / 3f; // Assuming max dash amount is 3
+            DashBarFill.fillAmount = DashAmount / 3f; // Assuming max dash amount is 3
         }
     }
     private void RefreshWeaponUi(WeaponChoosement.WeaponType weaponType)
