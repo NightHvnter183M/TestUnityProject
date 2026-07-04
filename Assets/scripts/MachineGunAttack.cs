@@ -3,27 +3,27 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class RevolverAttack : MonoBehaviour
+    public class MachineGunAttack : MonoBehaviour
     {
-        [SerializeField] private float Damage = 35;
-        [SerializeField] private float Rate = 0.5f;
+        private static Boolean IsShooting = false;
+        [SerializeField] private float Damage = 15;
+        [SerializeField] private float Rate = 0.2f;
         [SerializeField] private Camera playerCamera;
-        private static Boolean isShooting  = false;
         private float nextFireTime;
-
+        
         public static void StartShoot()
         {
-            isShooting = true;
+            IsShooting = true;
         }
 
         public static void StopShoot()
         {
-            isShooting = false;
+            IsShooting = false;
         }
 
         private void Update()
         {
-            if (isShooting & Time.time >= nextFireTime)
+            if (IsShooting && Time.time >= nextFireTime)
             {
                 Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
                 RaycastHit hit;

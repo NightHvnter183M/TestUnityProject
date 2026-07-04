@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,17 @@ public enum WeaponType { Revolver, Shotgun, MachineGun, GrenadeLauncher, RailGun
 public class PlayerCombat : MonoBehaviour
 {
     public WeaponType currentWeapon;
+    private ShotgunAttack shotgun;
+    private GrenadeLauncherAttack grenadeLauncher;
+    private RailGunAttack railgun;
+    private float nextfireShotgun, nextfireGrenade, nextfireRailgun;
+
+    private void Awake()
+    {
+        shotgun = GetComponent<ShotgunAttack>();
+        grenadeLauncher = GetComponent<GrenadeLauncherAttack>();
+        railgun = GetComponent<RailGunAttack>();
+    }
 
     private void OnEnable()
     {
@@ -32,12 +44,13 @@ public class PlayerCombat : MonoBehaviour
             switch (currentWeapon)
             {
                 case WeaponType.Revolver:
-                    RevolverAttack.Shoot();
+                    RevolverAttack.StartShoot();
                     break;
                 case WeaponType.MachineGun:
+                    MachineGunAttack.StartShoot();
                     break;
-                default:
-                    Console.WriteLine("Default result");
+                case WeaponType.SMG:
+                    SMGAttack.StartShoot();
                     break;
             }
         }
@@ -48,6 +61,40 @@ public class PlayerCombat : MonoBehaviour
             {
                 case WeaponType.Revolver:
                     RevolverAttack.StopShoot();
+                    break;
+                case WeaponType.MachineGun:
+                    MachineGunAttack.StopShoot();
+                    break;
+                case WeaponType.SMG:
+                    SMGAttack.StopShoot();
+                    break;
+            }
+        }
+
+        if (context.performed)
+        {
+            switch (currentWeapon)
+            {
+                case WeaponType.Shotgun:
+                    if (Time.time >= nextfireShotgun)
+                    {
+                        shotgun.Shoot();
+                        nextfireShotgun = Time.time + shotgun.rateShotgun;
+                    }
+                    break;
+                case WeaponType.GrenadeLauncher:
+                    if (Time.time >= nextfireGrenade)
+                    {
+                        grenadeLauncher.Shoot();
+                        nextfireGrenade = Time.time + grenadeLauncher.grenadeRate;
+                    }
+                    break;
+                case WeaponType.RailGun:
+                    if (Time.time >= nextfireRailgun)
+                    {
+                        railgun.Shoot();
+                        nextfireRailgun = Time.time + railgun.rate;
+                    }
                     break;
             }
         }
