@@ -8,28 +8,39 @@ namespace DefaultNamespace
         [SerializeField] private float Damage = 35;
         [SerializeField] private float Rate = 0.5f;
         [SerializeField] private Camera playerCamera;
-        private static Boolean isShooting  = false;
+        public static Boolean isShooting  = false;
+        public WeaponType currentWeapon;
         private float nextFireTime;
-
-        public static void StartShoot()
+        
+        private void OnEnable()
         {
-            isShooting = true;
+            WeaponChoosement.OnWeaponChanged += UpdateCurrentWeapon;
         }
 
-        public static void StopShoot()
+        private void OnDisable()
         {
-            isShooting = false;
+            WeaponChoosement.OnWeaponChanged -= UpdateCurrentWeapon;
         }
 
         private void Update()
         {
-            if (isShooting & Time.time >= nextFireTime)
+            if (currentWeapon == WeaponType.Revolver)
             {
-                Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 300f) && hit.collider.TryGetComponent<EnemyHealth>(out EnemyHealth enemy)) enemy.TakeDamage(Damage);
-                nextFireTime = Time.time + Rate;
+                if (isShooting & Time.time >= nextFireTime)
+                {
+                    Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 300f) &&
+                        hit.collider.TryGetComponent<EnemyHealth>(out EnemyHealth enemy)) enemy.TakeDamage(Damage);
+                    nextFireTime = Time.time + Rate;
+                }
             }
+            else isShooting = false;
+        }
+        
+        private void UpdateCurrentWeapon(WeaponChoosement.WeaponType newWeapon)
+        {
+            currentWeapon = (WeaponType)newWeapon;
         }
     }
 }

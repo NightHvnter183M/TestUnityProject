@@ -4,7 +4,7 @@ namespace DefaultNamespace
 {
     public class GrenadeLauncherAttack : MonoBehaviour
     {
-        [SerializeField] private float speed = 10f;
+        [SerializeField] private float speed = 30f;
         [SerializeField] private Camera playerCamera;
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private GameObject shootPoint;

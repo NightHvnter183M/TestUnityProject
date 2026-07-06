@@ -21,6 +21,7 @@ namespace DefaultNamespace
                 enemy.TakeDamage(damage);
                 Destroy(gameObject);
             }
+            else if (collision.gameObject.tag != "Player") Destroy(gameObject);
         }
     }
 }

@@ -1,20 +1,27 @@
 using System;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHUD : MonoBehaviour
 {
     [SerializeField] private Player playerData;
-    [SerializeField] private Image healthBarFill;
-    [SerializeField] private Image DashBarFill;
+    [SerializeField] private RectTransform maskRectTransform;
+    [SerializeField] private RectTransform maskRectTransformDash;
     [SerializeField] private TextMeshProUGUI weaponNameText;
+    [SerializeField] private float visibleHealth;
+    [SerializeField] private float visibleDash;
+    private float maxHealthWidth;
+    private float maxDashWidth;
+    private RectMask2D MaskHealth;
+    private RectMask2D MaskDash;
 
     private void OnEnable()
     {
         if (playerData != null)
         {
-            playerData.OnHealthChanged += RefreshUi;
+            playerData.OnHealthChanged += RefreshHealthUi;
         }
         WeaponChoosement.OnWeaponChanged += RefreshWeaponUi;
     }
@@ -23,25 +30,31 @@ public class PlayerHUD : MonoBehaviour
     {
         if (playerData != null)
         {
-            playerData.OnHealthChanged -= RefreshUi;
+            playerData.OnHealthChanged -= RefreshHealthUi;
         }
         WeaponChoosement.OnWeaponChanged -= RefreshWeaponUi;
     }
 
-    private void RefreshUi(float currentHP, float maxHP)
+    private void Awake()
     {
-        if (healthBarFill != null)
-        {
-            healthBarFill.fillAmount = playerData.CurrentHP / playerData.MaxHP;
-        }
+        maxHealthWidth = maskRectTransform.rect.width;
+        maxDashWidth = maskRectTransformDash.rect.width;
+        MaskHealth = maskRectTransform.GetComponent<RectMask2D>();
+        MaskDash = maskRectTransformDash.GetComponent<RectMask2D>();
+    }
+
+    private void RefreshHealthUi(float maxHP, float currentHP)
+    {
+        float fillPercentage = currentHP / maxHP;
+        visibleHealth = Math.Abs(maxHealthWidth - (maxHealthWidth * fillPercentage));
+        MaskHealth.padding = new Vector4(0, 0, visibleHealth, 0);
     }
 
     public void RefreshDashUi(byte DashAmount)
     {
-        if (DashBarFill != null)
-        {
-            DashBarFill.fillAmount = DashAmount / 3f; // Assuming max dash amount is 3
-        }
+        float fillPercentage = DashAmount / 3f;
+        visibleDash = maxDashWidth - (fillPercentage * maxDashWidth);
+        MaskDash.padding = new Vector4(0, 0, visibleDash, 0);
     }
     private void RefreshWeaponUi(WeaponChoosement.WeaponType weaponType)
     {

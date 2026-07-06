@@ -34,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (context.performed)
         {
-         
+            
         }
     }
     private void OnShoot(InputAction.CallbackContext context)
@@ -44,13 +44,13 @@ public class PlayerCombat : MonoBehaviour
             switch (currentWeapon)
             {
                 case WeaponType.Revolver:
-                    RevolverAttack.StartShoot();
+                    RevolverAttack.isShooting = true;
                     break;
                 case WeaponType.MachineGun:
-                    MachineGunAttack.StartShoot();
+                    MachineGunAttack.isShooting = true;
                     break;
                 case WeaponType.SMG:
-                    SMGAttack.StartShoot();
+                    SMGAttack.isShooting = true;
                     break;
             }
         }
@@ -60,13 +60,13 @@ public class PlayerCombat : MonoBehaviour
             switch (currentWeapon)
             {
                 case WeaponType.Revolver:
-                    RevolverAttack.StopShoot();
+                    RevolverAttack.isShooting = false;
                     break;
                 case WeaponType.MachineGun:
-                    MachineGunAttack.StopShoot();
+                    MachineGunAttack.isShooting = false;
                     break;
                 case WeaponType.SMG:
-                    SMGAttack.StopShoot();
+                    SMGAttack.isShooting = false;
                     break;
             }
         }

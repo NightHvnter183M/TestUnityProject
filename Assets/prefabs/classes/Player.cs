@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "Player", menuName = "Scriptable Objects/Player")]
 public class Player : ScriptableObject
@@ -22,13 +21,13 @@ public class Player : ScriptableObject
         CurrentHP -= amount;
         CurrentHP = Mathf.Clamp(CurrentHP, 0f, MaxHP);
         UsedHP += amount;
-        OnHealthChanged?.Invoke(CurrentHP, UsedHP);
+        OnHealthChanged?.Invoke(MaxHP, CurrentHP);
     }
 
     public void HealHP(float amount)
     {
         CurrentHP += amount;
         CurrentHP = Mathf.Clamp(CurrentHP, 0f, MaxHP);
-        OnHealthChanged?.Invoke(CurrentHP, UsedHP);
+        OnHealthChanged?.Invoke(MaxHP, CurrentHP);
     }
 }

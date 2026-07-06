@@ -5,31 +5,42 @@ namespace DefaultNamespace
 {
     public class MachineGunAttack : MonoBehaviour
     {
-        private static Boolean IsShooting = false;
+        public static Boolean isShooting = false;
+        public WeaponType currentWeapon;
         [SerializeField] private float Damage = 15;
         [SerializeField] private float Rate = 0.2f;
         [SerializeField] private Camera playerCamera;
         private float nextFireTime;
         
-        public static void StartShoot()
+        private void OnEnable()
         {
-            IsShooting = true;
+            WeaponChoosement.OnWeaponChanged += UpdateCurrentWeapon;
         }
 
-        public static void StopShoot()
+        private void OnDisable()
         {
-            IsShooting = false;
+            WeaponChoosement.OnWeaponChanged -= UpdateCurrentWeapon;
         }
 
         private void Update()
         {
-            if (IsShooting && Time.time >= nextFireTime)
+            if (currentWeapon == WeaponType.MachineGun)
             {
-                Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 300f) && hit.collider.TryGetComponent<EnemyHealth>(out EnemyHealth enemy)) enemy.TakeDamage(Damage);
-                nextFireTime = Time.time + Rate;
+                if (isShooting && Time.time >= nextFireTime)
+                {
+                    Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 300f) &&
+                        hit.collider.TryGetComponent<EnemyHealth>(out EnemyHealth enemy)) enemy.TakeDamage(Damage);
+                    nextFireTime = Time.time + Rate;
+                }
             }
+            else isShooting = false;
+        }
+        
+        private void UpdateCurrentWeapon(WeaponChoosement.WeaponType newWeapon)
+        {
+            currentWeapon = (WeaponType)newWeapon;
         }
     }
 }
