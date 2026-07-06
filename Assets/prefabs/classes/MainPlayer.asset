@@ -15,4 +15,3 @@ MonoBehaviour:
   MaxHP: 100
   CurrentHP: 100
   UsedHP: 0
-  CurrentWeapon: 0

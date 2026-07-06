@@ -363,7 +363,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 159d56d42c7fdd24b9af1c509abc4763, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -996,6 +996,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42af71a028683fc47aaf5ee3065e294e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  boundSpells:
+  - {fileID: 11400000, guid: 6fd8d9702b373694b900c06168b0f086, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerData: {fileID: 11400000, guid: 2a12d6ce5ad8bca4ea06891240204655, type: 2}
+  ShootPoint: {fileID: 1809739510}
   currentWeapon: 0
 --- !u!1 &832575517
 GameObject:
@@ -1414,6 +1423,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ec7b95cba168644b80d1235fec2ca01, type: 3}
+--- !u!4 &1809739510 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1676607890604060463, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
+  m_PrefabInstance: {fileID: 5867104517270565138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3073922100180611645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1483,6 +1497,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5524621510616147413, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
+      propertyPath: boundSpells.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 545149472741505935, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1826,6 +1844,10 @@ PrefabInstance:
     - target: {fileID: 6766695280540380934, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098928291156523574, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

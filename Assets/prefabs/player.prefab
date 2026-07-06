@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 2545517839377874447}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.010000229, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -633,6 +633,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42af71a028683fc47aaf5ee3065e294e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  boundSpells:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerData: {fileID: 11400000, guid: 2a12d6ce5ad8bca4ea06891240204655, type: 2}
+  ShootPoint: {fileID: 1676607890604060463}
   currentWeapon: 0
 --- !u!114 &5005191351781067810
 MonoBehaviour:
@@ -649,6 +658,7 @@ MonoBehaviour:
   Damage: 35
   Rate: 0.5
   playerCamera: {fileID: 8090375191626737822}
+  currentWeapon: 0
 --- !u!114 &9165959676322775698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93391d8a9db34fe8a0dfe3a4fc0c99b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.MachineGunAttack
+  currentWeapon: 0
   Damage: 15
   Rate: 0.2
   playerCamera: {fileID: 8090375191626737822}
@@ -708,6 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e8692fe68f4c409dbf5f51f8ebb39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.SMGAttack
+  currentWeapon: 0
   damage: 15
   rate: 0.15
   playerCamera: {fileID: 8090375191626737822}

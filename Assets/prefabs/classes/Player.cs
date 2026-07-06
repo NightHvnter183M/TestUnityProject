@@ -5,14 +5,16 @@ using UnityEngine;
 public class Player : ScriptableObject
 {
     [SerializeField] public float MaxHP = 100f;
+    [SerializeField] public float MaxMana = 200f;
     [SerializeField] public float CurrentHP;
-    [SerializeField] private float UsedHP;
+    [SerializeField] public float CurrentMana;
+    [SerializeField] public float ManaRestoreRate = 0.5f;
     public event Action<float, float> OnHealthChanged;
 
     private void OnEnable()
     {
         CurrentHP = MaxHP;
-        UsedHP = 0f;
+        CurrentMana = MaxMana;
         ;
     }
 
@@ -20,7 +22,6 @@ public class Player : ScriptableObject
     {
         CurrentHP -= amount;
         CurrentHP = Mathf.Clamp(CurrentHP, 0f, MaxHP);
-        UsedHP += amount;
         OnHealthChanged?.Invoke(MaxHP, CurrentHP);
     }
 
