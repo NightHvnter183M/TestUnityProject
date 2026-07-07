@@ -199,6 +199,15 @@ public partial class @PllayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""bc52c934-f089-47b1-b5ec-81a0167b2b88"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -421,6 +430,17 @@ public partial class @PllayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Casting"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95e822b4-b24c-4ead-bca0-ab95fbac4a04"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -441,6 +461,7 @@ public partial class @PllayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_WeaponChoose6 = m_Gameplay.FindAction("WeaponChoose6", throwIfNotFound: true);
         m_Gameplay_Shooting = m_Gameplay.FindAction("Shooting", throwIfNotFound: true);
         m_Gameplay_Casting = m_Gameplay.FindAction("Casting", throwIfNotFound: true);
+        m_Gameplay_Escape = m_Gameplay.FindAction("Escape", throwIfNotFound: true);
     }
 
     ~@PllayerControls()
@@ -533,6 +554,7 @@ public partial class @PllayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_WeaponChoose6;
     private readonly InputAction m_Gameplay_Shooting;
     private readonly InputAction m_Gameplay_Casting;
+    private readonly InputAction m_Gameplay_Escape;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -592,6 +614,10 @@ public partial class @PllayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Casting".
         /// </summary>
         public InputAction @Casting => m_Wrapper.m_Gameplay_Casting;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Escape".
+        /// </summary>
+        public InputAction @Escape => m_Wrapper.m_Gameplay_Escape;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -654,6 +680,9 @@ public partial class @PllayerControls: IInputActionCollection2, IDisposable
             @Casting.started += instance.OnCasting;
             @Casting.performed += instance.OnCasting;
             @Casting.canceled += instance.OnCasting;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         /// <summary>
@@ -701,6 +730,9 @@ public partial class @PllayerControls: IInputActionCollection2, IDisposable
             @Casting.started -= instance.OnCasting;
             @Casting.performed -= instance.OnCasting;
             @Casting.canceled -= instance.OnCasting;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         /// <summary>
@@ -825,5 +857,12 @@ public partial class @PllayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCasting(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEscape(InputAction.CallbackContext context);
     }
 }
