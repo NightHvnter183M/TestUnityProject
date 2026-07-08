@@ -1186,10 +1186,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PauseButtonsLogic, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 3272305871157610143, guid: 3cabef8b9a1b3214598038a1e383df9f, type: 3}
-      propertyPath: globalVolume
-      value: 
-      objectReference: {fileID: 832575518}
     - target: {fileID: 3331681149189542219, guid: 3cabef8b9a1b3214598038a1e383df9f, type: 3}
       propertyPath: m_Name
       value: Pause-Canvas
@@ -1657,10 +1653,6 @@ PrefabInstance:
       propertyPath: canvasNameInHierarchy
       value: Pause-Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: -857261811231082916, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
-      propertyPath: globalVolume
-      value: 
-      objectReference: {fileID: 832575518}
     - target: {fileID: 545149472741505935, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2031,6 +2023,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7098928291156523574, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
       propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098928291156523574, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098928291156523574, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098928291156523574, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000008925383
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098928291156523574, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1.4457816e-11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098928291156523574, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -2.4479205e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8557617837217549093, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8557617837217549093, guid: 005ceb1d60365424a836e3d8f82038ca, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
